@@ -15,11 +15,3 @@ function atr_run_master()
 }
 
 atr_run_master();
-
-function registrar_menus() {
-    register_nav_menus( array(
-        'menu_principal' => __( 'Menú Principal' ),
-        'menu_secundario' => __( 'Menú Secundario' )
-    ) );
-}
-add_action( 'after_setup_theme', 'registrar_menus' );

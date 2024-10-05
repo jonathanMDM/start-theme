@@ -8,29 +8,37 @@
 </head>
 
 <body <?php body_class(); ?>>
+<?php wp_body_open(); ?>
+    <div id="page">
+        <header id="masthead" class="site-header header">
+            <div class="header__wrapper max-width">
+                <?php the_custom_logo() ?>
+                <nav class="header__navigation" id="primaryNavigation">
+                    <?php
+                    wp_nav_menu(
+                        array(
+                            'theme_location' => 'menu_primary',
+                            'menu_id'        => 'primary-menu',
+                            'menu_class'     => 'header__menu'
+                        )
+                    );
+                    ?>
+                    <a href="" class="button button--primary"></a>
+                </nav>
 
-<header class="site-header">
-    <div class="container">
-        <div class="logo">
-            <a href="<?php echo esc_url(home_url('/')); ?>">
-                <?php if (has_custom_logo()) : ?>
-                    <?php the_custom_logo(); ?>
-                <?php else : ?>
-                    <h1><?php bloginfo('name'); ?></h1>
-                <?php endif; ?>
-            </a>
-        </div>
+                <div class="header__toggle" id="handlerToggle">
+                    <label class="burger" for="burger">
+                        <input type="checkbox" id="burger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </label>
+                </div>
 
-        <nav class="main-navigation">
-        <?php
-            wp_nav_menu( array(
-                'theme_location' => 'menu_principal', // La ubicación que registraste
-                'container'      => 'nav',           // Contenedor HTML (puede ser 'div', 'nav', etc.)
-                'container_id'   => 'menu-principal',// ID del contenedor
-                'menu_class'     => 'menu',          // Clase CSS para el menú
-                'fallback_cb'    => false,           // Callback si no hay menú asignado
-            ) );
-            ?>
-        </nav>
-    </div>
-</header>
+            </div>
+        </header>
+        <section class="header__menu-movil" id="innerMenu">
+            <div class="header__menu-movil--content" id="menuMovil">
+                <?php the_custom_logo() ?>
+            </div>
+        </section>

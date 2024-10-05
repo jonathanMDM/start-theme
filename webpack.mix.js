@@ -8,13 +8,15 @@ if (!mix.inProduction()) {
 	});
 }
 
-mix.sourceMaps()
+mix
+	.sourceMaps()
 	.js('public/src/js/app.js', 'public/js')
+	
 	.sass('public/src/styles/style.scss', 'css')
 	.setPublicPath('public');
 
 mix.browserSync({
-	proxy: 'http://template.local',
+	proxy: 'http://service-boat.local/',
 	ui: {
 		port: 8080
 	}
